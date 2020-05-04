@@ -1,0 +1,64 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ProfileModelGraphql {
+  id: ID!
+  nickname: String!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String!
+}
+
+type CommentModelGraphql {
+  id: ID!
+  comment: String!
+  userId: Float!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String!
+}
+
+type UsersModel {
+  id: ID!
+  profileId: Float!
+  email: String!
+  ban: Boolean!
+  active: Boolean!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String!
+  profile: ProfileModelGraphql
+  comments: [CommentModelGraphql!]
+}
+
+type Query {
+  user(id: String!): UsersModel!
+  users(page: Float = 0, perPage: Float = 20): [UsersModel!]!
+  profile(id: Float!): ProfileModelGraphql!
+  profiles(page: Float = 0, perPage: Float = 20): [ProfileModelGraphql!]!
+  comment(id: Float!): CommentModelGraphql!
+  comments(page: Float = 0, perPage: Float = 20): [CommentModelGraphql!]!
+}
+
+type Mutation {
+  addUser(newProfileData: NewProfileData!, newUserData: NewUserInput!): UsersModel!
+  addComment(newCommentData: NewComment!): CommentModelGraphql!
+}
+
+input NewProfileData {
+  nickname: String!
+  firstName: String!
+  lastName: String!
+}
+
+input NewUserInput {
+  email: String!
+  ban: Boolean = false
+  active: Boolean = true
+}
+
+input NewComment {
+  comment: String!
+  userId: Float!
+}

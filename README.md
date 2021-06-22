@@ -1,4 +1,4 @@
-# Technorely test task
+# Nest.js backend service using knex and graphql
 
 ### Run application
 * ```npm install```

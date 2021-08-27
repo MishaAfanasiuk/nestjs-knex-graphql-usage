@@ -28,8 +28,8 @@ type UsersModel {
   createdAt: String!
   updatedAt: String!
   deletedAt: String!
-  profile: ProfileModelGraphql
-  comments: [CommentModelGraphql!]
+  profile: ProfileModelGraphql!
+  comments: [CommentModelGraphql!]!
 }
 
 type Query {
